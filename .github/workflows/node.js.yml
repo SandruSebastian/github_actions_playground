@@ -19,6 +19,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/upload-artifact@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -26,7 +27,6 @@ jobs:
     - run: yarn install
     - run: yarn start
     - run: yarn test
-    - uses: actions/upload-artifact@v2
-        with:
-          name: my-artifact
-          path: ./src # or path/to/artifact
+      with:
+        name: my-artifact
+        path: ./src # or path/to/artifact
